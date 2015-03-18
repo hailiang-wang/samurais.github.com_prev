@@ -1,0 +1,32 @@
+#! /bin/bash 
+
+works_dir=`pwd`
+postsDir=/Users/hain/arrking/Samurais.github.com/_posts
+datePrefix=`date +%Y-%m-%d`
+
+function scriptTemplate(){
+cat >$1 <<EOF
+---
+title: 
+layout: post
+category : notes
+tagline: "Supporting tagline"
+tags : []
+---
+
+<!-- tags: poetry, diary, startup-->
+{% include JB/setup %}
+
+
+EOF
+
+}
+
+function createScript(){
+    path=$postsDir/$datePrefix-`date +%s`.md
+    scriptTemplate $path
+    open $path
+}
+
+#main
+createScript

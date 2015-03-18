@@ -1,0 +1,17 @@
+#! /bin/bash 
+###########################################
+#
+###########################################
+
+# constants
+baseDir=$(cd `dirname "$0"`;pwd)
+postsDir=~/arrking/Samurais.github.com/_posts
+# functions
+
+# main 
+[ -z "${BASH_SOURCE[0]}" -o "${BASH_SOURCE[0]}" = "$0" ] || return
+cd $postsDir
+git add --all
+git commit -m "`date +%Y-%m-%d`"
+git push origin master
+
